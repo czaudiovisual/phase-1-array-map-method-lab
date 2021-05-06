@@ -18,11 +18,19 @@ const tutorials = [
 // console.log(titleCased);
 
 
-const titleCased = () => {
-  return tutorials
+const title = (tutorial) => {
+  return tutorial.charAt(0).toUpperCase() + 
+  tutorial.substr(1);
 }
-const tutorialCased = tutorials.map(tutorial => tutorial.charAt(0).toUpperCase() + 
-  tutorial.substr(1).toLowerCase());
 
-// console.log(tutorialCased);
+
+function titleCased() {
+  const tutorialCased = tutorials.map(tutorial => {
+    const tutorialWords = tutorial.split(" ");
+    const tutorialWordCased = tutorialWords.map(word => title(word)).join(" ");
+    return tutorialWordCased;
+  });  
+  return tutorialCased;
+} 
+
 
